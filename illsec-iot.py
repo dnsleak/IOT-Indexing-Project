@@ -7,5 +7,5 @@ ips = open(sys.argv[1], "r").readlines()
 for ip in ips:
     ip = ip.strip("\r\n")
     ip = ip+":"+str(port)
-    cmd = "curl -I '%s' >> '%s'" % (ip, ip) #default curl request as of right now, working on setting some other juicy hooks up.
+    cmd = "curl -I --connection-timeout 6 '%s' >> '%s'" % (ip, ip) #default curl request as of right now, working on setting some other juicy hooks up.
     os.system(cmd)
